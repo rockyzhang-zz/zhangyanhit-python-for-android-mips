@@ -22,7 +22,7 @@ if [ ! -d host ]; then
     echo "Decompressing Python-${VERSION}"
     tar -xjf ${CWD}/Python-${VERSION}.tar.bz2
     pushd Python-${VERSION}/
-    ./configure --prefix=${CWD}/host/
+    ./configure --prefix=${CWD}/host/ SVNVERSION=none
     make
     mkdir -p ${CWD}/host
     make install
@@ -81,9 +81,9 @@ ${CWD}/host/pgen ${CWD}/python-src/Grammar/Grammar \
 ndk-build
 
 # copy out all the needed files
-mv obj/local/armeabi/python	${OUT}/usr/bin
-mv obj/local/armeabi/lib*.so	${OUT}/usr/lib
-mv obj/local/armeabi/*.so	${OUT}/usr/lib/python2.6/lib-dynload
+mv obj/local/mips/python	${OUT}/usr/bin
+mv obj/local/mips/lib*.so	${OUT}/usr/lib
+mv obj/local/mips/*.so	${OUT}/usr/lib/python2.6/lib-dynload
 popd
 
 pushd ${CWD}/python-libs
