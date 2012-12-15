@@ -21,15 +21,15 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := ffi
 LOCAL_MODULE_FILENAME := 
-LOCAL_SRC_FILES := src/arm/sysv.S \
-	src/arm/ffi.c \
+LOCAL_SRC_FILES := src/mips/o32.S \
+	src/mips/ffi.c \
 	src/debug.c \
 	src/java_raw_api.c \
 	src/prep_cif.c \
 	src/raw_api.c \
 	src/types.c
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/include $(LOCAL_PATH)/linux-arm
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include $(LOCAL_PATH)/linux-mips
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_C_INCLUDES)
 
 $(call __ndk_info, Building libffi)
