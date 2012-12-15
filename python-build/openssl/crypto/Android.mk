@@ -1,12 +1,11 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS += -DOPENSSL_BN_ASM_MONT -DAES_ASM -DSHA1_ASM -DSHA256_ASM -DSHA512_ASM -DOPENSSL_NO_STATIC_ENGINE
-LOCAL_SRC_FILES:= 0.9.9-dev/bn/armv4-mont.s \
-                  0.9.9-dev/aes/aes-armv4.s \
-                  0.9.9-dev/sha/sha1-armv4-large.s \
-                  0.9.9-dev/sha/sha256-armv4.s \
-                  0.9.9-dev/sha/sha512-armv4.s
+LOCAL_CFLAGS += -DOPENSSL_BN_ASM_MONT -DAES_ASM -DSHA1_ASM -DSHA256_ASM  -DOPENSSL_NO_STATIC_ENGINE
+LOCAL_SRC_FILES:= 0.9.9-dev/bn/mips-mont.s \
+                  0.9.9-dev/aes/aes-mips.s \
+                  0.9.9-dev/sha/sha1-mips.s \
+                  0.9.9-dev/sha/sha256-mips.s 
 
 LOCAL_SRC_FILES+= \
 	cryptlib.c \
@@ -23,6 +22,7 @@ LOCAL_SRC_FILES+= \
 	o_time.c \
 	o_str.c \
 	o_dir.c \
+	aes/aes_core.c \
 	aes/aes_misc.c \
 	aes/aes_ecb.c \
 	aes/aes_cbc.c \
